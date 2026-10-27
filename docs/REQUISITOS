@@ -1,0 +1,44 @@
+# Requisitos de FinPet
+
+## 1. Propósito y alcance
+
+FinPet es un producto mínimo viable académico que ayuda a una persona a llevar un registro básico de sus ingresos y gastos. Milo, la mascota virtual, presenta mensajes generales para fomentar el hábito de registrar movimientos.
+
+## 2. Usuario objetivo
+
+Una persona que registra y consulta sus propios movimientos desde un navegador web.
+
+## 3. Requisitos funcionales
+
+| ID | Requisito | Criterio de aceptación |
+|---|---|---|
+| RF-01 | Registrar ingresos | El usuario puede indicar descripción, valor positivo, fecha, categoría y nota opcional. |
+| RF-02 | Registrar gastos | El usuario puede registrar un gasto con los mismos campos y tipo gasto. |
+| RF-03 | Validar movimientos | No se guardan valores vacíos, no numéricos o menores o iguales a cero. |
+| RF-04 | Filtrar por mes | Al cambiar el selector mensual, los movimientos y totales corresponden al mes elegido. |
+| RF-05 | Consultar balance | Se muestran los totales de ingresos, gastos y balance (ingresos menos gastos). |
+| RF-06 | Categorizar gastos | Se presenta la suma y proporción de gastos por categoría en el mes seleccionado. |
+| RF-07 | Eliminar movimientos | Se puede eliminar un movimiento después de una confirmación. |
+| RF-08 | Exportar CSV | El usuario puede descargar el listado del mes seleccionado en un archivo CSV. |
+| RF-09 | Mostrar mensajes de Milo | Los mensajes cambian según la existencia de movimientos y el balance mensual. |
+| RF-10 | Persistir localmente | Los movimientos se guardan y recuperan mediante `localStorage` del navegador. |
+
+## 4. Requisitos no funcionales
+
+- RNF-01 Usabilidad: interfaz en español, etiquetas claras y diseño adaptable a pantallas pequeñas.
+- RNF-02 Rendimiento: al ser una aplicación estática sin servidor, debe abrirse en navegadores modernos sin instalación de dependencias.
+- RNF-03 Privacidad: los movimientos no se transmiten a un servidor en esta versión.
+- RNF-04 Integridad: el valor debe ser numérico y mayor que cero; el cálculo de balance usa ingresos menos gastos.
+- RNF-05 Mantenibilidad: separar estructura (HTML), estilos (CSS), lógica de finanzas, mensajes de mascota e interfaz.
+- RNF-06 Accesibilidad básica: controles etiquetados, foco visible, mensajes de estado y confirmación al eliminar.
+
+## 5. Fuera del alcance del MVP
+
+Inicio de sesión real, roles, base de datos remota, sincronización entre dispositivos, recuperación de contraseña, integración bancaria, notificaciones y asesoría financiera personalizada.
+
+## 6. Supuestos y restricciones
+
+- Los datos son por navegador/perfil de usuario y no se sincronizan.
+- Borrar los datos del sitio puede borrar los movimientos.
+- Las categorías se encuentran predefinidas.
+- La exportación CSV es una copia descargable; no es un respaldo automático.

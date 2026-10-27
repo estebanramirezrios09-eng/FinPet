@@ -1,0 +1,66 @@
+# Guía de despliegue de FinPet
+
+## Opción A: GitHub Pages (recomendada para el MVP)
+
+### 1. Incorporar los archivos
+
+Copia el contenido de este paquete en la raíz del repositorio `FinPet`, conservando las carpetas `css`, `js`, `docs` y `.github`.
+
+Desde una terminal, dentro de la copia local del repositorio:
+
+```bash
+git status
+git add .
+git commit -m "Completa MVP FinPet y documentación de despliegue"
+git push origin main
+```
+
+Si el repositorio contiene trabajo propio, revisa `git diff` y `git status` antes de confirmar cambios. No sobrescribas archivos que quieras conservar sin revisarlos.
+
+### 2. Activar GitHub Pages
+
+1. Abre el repositorio en GitHub.
+2. Entra en **Settings → Pages**.
+3. En **Build and deployment**, selecciona **GitHub Actions** como fuente.
+4. Entra en **Actions** y revisa el flujo “Deploy FinPet to GitHub Pages”.
+5. Cuando termine correctamente, abre la URL que aparece en **Settings → Pages**.
+
+El archivo `.github/workflows/deploy-pages.yml` publica los archivos estáticos al hacer push a `main`. No se necesita `npm install` ni proceso de build.
+
+### 3. Si el flujo falla
+
+- Comprueba que GitHub Pages esté habilitado y que la fuente sea GitHub Actions.
+- Revisa la pestaña **Actions** para leer el registro del trabajo fallido.
+- Comprueba que `index.html`, `css/styles.css` y la carpeta `js/` estén en la raíz del repositorio.
+- Confirma que el flujo tenga permisos de escritura de Pages y despliegue configurado.
+
+## Opción B: Vercel
+
+1. Inicia sesión en Vercel.
+2. Selecciona **Add New → Project**.
+3. Importa `estebanramirezrios09-eng/FinPet`.
+4. Deja el framework como **Other** si no detecta uno.
+5. No configures comando de build ni directorio de salida especial: el sitio es estático y `index.html` está en la raíz.
+6. Pulsa **Deploy**. Cada push posterior a la rama de producción puede activar un nuevo despliegue.
+
+Guía oficial: https://vercel.com/docs/git
+
+## Configurar dominio propio
+
+El dominio debe comprarse o registrarse por separado; este proyecto no incluye uno. Después de publicar:
+
+- En Vercel: abre el proyecto y entra en **Settings → Domains**, añade el dominio y sigue los registros DNS que te muestre Vercel.
+- En GitHub Pages: abre **Settings → Pages → Custom domain**, introduce el dominio y configura los registros DNS en el proveedor donde lo compraste. Sigue la guía oficial de GitHub para evitar una configuración incorrecta.
+
+Documentación Vercel: https://vercel.com/docs/domains/working-with-domains/add-a-domain
+Documentación GitHub Pages: https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site
+
+## Antes de presentar el proyecto
+
+- Prueba el formulario con ingreso y gasto.
+- Verifica que un valor cero o negativo no se guarde.
+- Cambia entre dos meses y comprueba que los totales cambien.
+- Elimina un movimiento y comprueba el balance.
+- Descarga y abre un CSV.
+- Prueba el diseño en escritorio y móvil.
+- Recuerda que `localStorage` es local al navegador; no hay usuarios ni sincronización en la nube.

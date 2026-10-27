@@ -1,0 +1,38 @@
+# Manual de usuario de FinPet
+
+## Comenzar
+
+1. Abre el sitio de FinPet en tu navegador.
+2. Elige el mes que quieres revisar en la parte superior.
+3. En el formulario “Registra tus finanzas”, selecciona **Ingreso** o **Gasto**.
+4. Escribe una descripción, un valor mayor que cero, una fecha y una categoría. La nota es opcional.
+5. Pulsa **Guardar movimiento**. El movimiento aparecerá en la lista y se actualizarán los totales.
+
+## Consultar el resumen
+
+- **Balance del mes:** ingresos menos gastos.
+- **Ingresos:** suma de movimientos tipo ingreso del mes seleccionado.
+- **Gastos:** suma de movimientos tipo gasto del mes seleccionado.
+- **Gastos por categoría:** suma y proporción de cada categoría de gasto.
+
+## Cambiar de mes
+
+Usa el selector de mes de la barra superior. La lista, los totales y las categorías mostrarán únicamente los movimientos de ese mes.
+
+## Eliminar un movimiento
+
+Pulsa **Eliminar** junto al movimiento y confirma la acción. El borrado no se puede deshacer desde la aplicación.
+
+## Exportar los datos
+
+1. Selecciona el mes deseado.
+2. Pulsa **Exportar CSV**.
+3. Guarda el archivo descargado. Puede abrirse en una hoja de cálculo compatible con CSV.
+
+## Privacidad y recomendaciones
+
+- Los movimientos se guardan en el navegador actual, no en una cuenta en la nube.
+- Cambiar de equipo o navegador no transfiere los datos.
+- Exporta periódicamente un CSV si quieres conservar una copia.
+- No introduzcas contraseñas ni números de tarjetas.
+- Los mensajes de Milo son sugerencias generales y no asesoría financiera.

@@ -1,0 +1,61 @@
+# Arquitectura de FinPet
+
+## Vista general
+
+FinPet es una aplicación web estática ejecutada en el navegador. No tiene backend ni base de datos remota en el MVP.
+
+```text
+Usuario
+  |
+  v
+index.html  ---- estructura y controles
+  |
+  +---- css/styles.css ---- presentación adaptable
+  |
+  +---- js/app.js --------- eventos, renderizado y exportación CSV
+  |         |
+  |         +---- js/finanzas.js ---- cálculos, validación y localStorage
+  |         |
+  |         +---- js/mascota.js ----- mensajes contextuales de Milo
+  |
+  +---- localStorage del navegador
+```
+
+## Responsabilidades
+
+- `index.html`: estructura semántica y formularios.
+- `css/styles.css`: identidad visual, componentes y diseño responsive.
+- `js/finanzas.js`: lectura/escritura de movimientos y funciones de cálculo.
+- `js/mascota.js`: mensajes de orientación generales basados en los totales.
+- `js/app.js`: coordinación de la interfaz, validación, listado, eliminación y CSV.
+
+## Modelo de datos
+
+Un movimiento usa la siguiente estructura lógica:
+
+```json
+{
+  "id": "identificador único",
+  "type": "income | expense",
+  "amount": 25000,
+  "description": "Mercado semanal",
+  "category": "Alimentación",
+  "date": "2026-10-27",
+  "note": "opcional",
+  "createdAt": 1793123456789
+}
+```
+
+La colección se guarda bajo la clave `finpet.movements.v1` en `localStorage`.
+
+## Despliegue
+
+Los archivos estáticos pueden servirse desde GitHub Pages, Vercel, Netlify o cualquier servidor web estático. GitHub Actions permite publicar automáticamente la rama `main` en GitHub Pages.
+
+## Seguridad y limitaciones
+
+No hay autenticación ni separación de usuarios. Cualquier persona con acceso al mismo perfil de navegador puede ver los datos guardados. `localStorage` no cifra los datos. No se deben guardar credenciales bancarias ni información financiera altamente sensible.
+
+## Evolución futura
+
+Para una versión multiusuario se recomienda diseñar un backend con autenticación segura, autorización por usuario, base de datos, validación en servidor, política de privacidad, copias de seguridad y pruebas de seguridad. La aplicación actual no debe presentarse como si ya tuviera esas capacidades.
